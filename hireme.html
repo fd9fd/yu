@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Fahd">
+        <meta name="keywords" content="web page, design, HTML5, tutorial, personal, teah shop,
+        teaShop, tea">
+        <meta name="description" content="This is a business web site that introduce our shop which 
+        a tea shop. it provides different types of tea and has some ineresting information about tea plant. ">
+        <title>Hire Me</title>
+        <link rel="stylesheet" href="desktop.css">
+        <!--<link rel="stylesheet" href="mobile_version.css">-->
+        <!--<link rel="stylesheet" href="advanced_selectors.css">-->
+        <!--<link rel="stylesheet" href="dark_theme.css">-->
+        <!--<link rel="stylesheet" href="basic_selectors.css">-->
+    </head>
+    <body>
+        <header>
+            <h1>Hiring Form</h1>
+        </header>
+        
+        <p>Please fill out this form and then click on submit botton</p>
+        <form method= "get" action="thankyou.html" autocomplete="on">
+            <p>
+                <strong>Select your gender</strong><br>
+                <label>Male 
+                    <input name="site" type="radio" value="male" required>
+                </label>
+
+                <label>Female 
+                    <input name="site" type="radio" value="female" required>
+                </label>
+            </p>
+
+            <p>
+                <strong>Enter your first name</strong><br>
+                <label>Firt Name:
+                    <input type="text" placeholder="First name" required>
+                    (First name)
+                </label>
+            </p>
+
+            <p>
+                <strong>Enter your last name</strong><br>
+                <label>Last Name:
+                    <input type="text" placeholder="Last name" required>
+                    (Last name)
+                </label>
+            </p>
+
+            <p>
+                <strong>Enter your date of birth</strong><br>
+                <label>Date of Birth:
+                    <input type="date" placeholder="yyyy-m-dd" required>
+                    (yyyy-m-dd)
+                </label>
+            </p>
+
+            <p>
+                <strong>Enter your email</strong><br>
+                <label>Email:
+                    <input type="email" placeholder="name@domail.com" required>
+                    (name@domail.com)
+                </label>
+            </p>
+
+            <p>
+                <!--pattern="\(\d{3}\) +\d{3}-\d{4}"-->
+                <strong>Enter your phone number</strong><br>
+                <label>Tel:
+                    <input type="tel" placeholder="(###) ###-####" required>
+                    (###) ###-####
+                </label>
+            </p>
+
+            <p>
+                <strong>Select the position that you want</strong><br>
+                <label>Position:
+                    <select name="position">
+                        <option selected>Web Devloper</option>
+                        <option>Marketing</option>
+                        <option>Transportation</option>
+                        <option>System Analyst</option>
+                        <option>Social Media</option>
+                        <option>Help Desk</option>
+                        <option>IT</option>
+                        <option>Accounting</option>
+                        <option>Manager</option>
+                    </select>
+                </label>
+            </p>
+
+            <p>
+                <!--
+                    <label>Feel free to add, or to tell us anything about you</label><br>
+                    <textarea name="message" cols="40" rows="6">Enter comments here.</textarea>
+                -->
+                <label>Feel free to add, or to tell us anything about you:<br/><input type="text" name="message"></label>
+            </p>
+
+            <canvas id="signatureCanvas" width="400" height="200"></canvas>
+            <button id="clearSignature">Clear Signature</button>
+            <script>
+                const signatureCanvas = document.getElementById('signatureCanvas');
+                const clearSignatureButton = document.getElementById('clearSignature');
+        
+                const context = signatureCanvas.getContext('2d');
+                let isDrawing = false;
+        
+                // Event listeners
+                signatureCanvas.addEventListener('mousedown', (e) => {
+                    isDrawing = true;
+                    context.beginPath();
+                    context.moveTo(e.clientX - signatureCanvas.getBoundingClientRect().left, e.clientY - signatureCanvas.getBoundingClientRect().top);
+                });
+        
+                signatureCanvas.addEventListener('mousemove', (e) => {
+                    if (isDrawing) {
+                        context.lineTo(e.clientX - signatureCanvas.getBoundingClientRect().left, e.clientY - signatureCanvas.getBoundingClientRect().top);
+                        context.stroke();
+                    }
+                });
+        
+                signatureCanvas.addEventListener('mouseup', () => {
+                    isDrawing = false;
+                });
+        
+                clearSignatureButton.addEventListener('click', () => {
+                    context.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+                });
+            </script>
+            <p>
+                <!--<input type="submit" value="Submit">-->
+                <!--<a href="thankyou.html">
+                    <button type="button">Submit</button>
+                </a>-->
+                <input type="submit" value="Submit" class="button">
+                <input type="reset" value="Clear" class="button">
+            </p>
+        </form>
+
+        <footer>
+            <h6>&copy; 2023-2024 by Fahd &amp; Associates, Inc. All Rights Reserved.</h6>
+            <address>
+                Visit our <a href="teashop.html">Home Page</a><br>
+                Visit <a href="detailspage.html">Camellia sinensis tea plant</a> 
+                for more details<br>
+                Contact us through our <a href="contactus.html">Contact Page</a><br>
+            </address>
+        </footer>
+    </body>
+</html>
